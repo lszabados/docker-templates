@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ispyagentdvr</Name>
+  <Repository>doitandbedone/ispyagentdvr</Repository>
+  <Registry>https://hub.docker.com/r/doitandbedone/ispyagentdvr/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/doitandbedone/ispyagentdvr/</Support>
+  <Project>https://www.ispyconnect.com/</Project>
+  <Overview>iSpy's Agent DVR, a standalone DVR service to manage IP cameras.   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
+  <Category>Other: MediaApp:Video Status:Stable</Category>
+  <WebUI>https://[ip]:8090</WebUI>
+  <TemplateURL/>
+  <Icon>https://ispycontent.azureedge.net/img/ispy2.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1608122047</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>iSpy's Agent DVR, a standalone DVR service to manage IP cameras.   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8090</HostPort>
+        <ContainerPort>8090</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>3478</HostPort>
+        <ContainerPort>3478</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>50000-50010</HostPort>
+        <ContainerPort>50000-50010</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/agent/Media/WebServerRoot/Media/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/agent/Media/XML/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="WebUI" Target="8090" Default="8090" Mode="tcp" Description="Web UI" Type="Port" Display="always" Required="true" Mask="false">8090</Config>
+  <Config Name="Turn Server" Target="3478" Default="3478" Mode="udp" Description="Main port used for turn server communication" Type="Port" Display="always" Required="true" Mask="false">3478</Config>
+  <Config Name="WebRTC" Target="50000-50010" Default="50000-50010" Mode="udp" Description="Ports used to create connections or WebRTC" Type="Port" Display="always" Required="false" Mask="false">50000-50010</Config>
+  <Config Name="Media" Target="/agent/Media/WebServerRoot/Media/" Default="/mnt/user/camera/" Mode="rw" Description="Container Path: /agent/Media/WebServerRoot/Media/" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Config" Target="/agent/Media/XML/" Default="/mnt/user/appdata/ispy" Mode="rw" Description="Container Path: /agent/Media/XML/" Type="Path" Display="always" Required="true" Mask="false"/>
+</Container>
